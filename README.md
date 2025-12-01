@@ -50,7 +50,7 @@ function App() {
       title: "检测到新版本",
       content: "应用已更新，是否刷新页面？",
       onOk: () => {
-        window.location.reload(true);
+        window.location.reload();
       },
     });
   };
