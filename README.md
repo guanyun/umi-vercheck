@@ -10,16 +10,6 @@
 - ✅ 支持 TypeScript
 - ✅ 轻量级，零依赖（仅 peerDependencies）
 
-## 安装
-
-```bash
-npm install umi-vercheck
-# 或
-yarn add umi-vercheck
-# 或
-pnpm add umi-vercheck
-```
-
 ## 使用方法
 
 ### 1. 在 UmiJS 配置中启用插件
