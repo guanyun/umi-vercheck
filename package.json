@@ -2,6 +2,11 @@
   "name": "umi-vercheck",
   "version": "1.0.2",
   "description": "UmiJS 版本检查插件 - 检测应用更新并提示用户刷新",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "tsc && npm run copy:template",
     "copy:template": "node scripts/copy-template.js",
