@@ -1,6 +1,6 @@
 {
   "name": "umi-vercheck",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UmiJS 版本检查插件 - 检测应用更新并提示用户刷新",
   "scripts": {
     "build": "tsc && npm run copy:template",
