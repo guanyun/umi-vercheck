@@ -7,6 +7,7 @@ export interface VersionCheckProps {
 
 export interface VersionInfo {
   version: number;
+  forceUpdate: boolean;
 }
 
 export const VersionCheck: React.FC<VersionCheckProps> = ({
@@ -21,7 +22,9 @@ export const VersionCheck: React.FC<VersionCheckProps> = ({
     const workerUrl = `/versionCheck.worker.js?t=${Date.now()}`;
     const worker = new Worker(workerUrl);
 
-    worker.onmessage = (event) => {
+    worker.onmessage = (
+      event: MessageEvent<{ type: string; payload?: VersionInfo }>
+    ) => {
       const { type, payload } = event.data;
       if (type === "update" && payload) onUpdate(payload);
     };

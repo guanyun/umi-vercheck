@@ -21,6 +21,7 @@ export default function (api: IApi) {
 
     const outputDir = api.paths.absOutputPath;
     const checkInterval = config.checkInterval || 60000;
+    const { "force-update": forceUpdate = false } = api.args || {};
 
     const templatePath = path.join(
       __dirname,
@@ -42,16 +43,20 @@ export default function (api: IApi) {
 
     const workerFilePath = path.join(outputDir, "versionCheck.worker.js");
     fs.writeFileSync(workerFilePath, workerCode, "utf-8");
-    api.logger.info(`✅ Worker 文件已生成: ${workerFilePath}`);
 
     const versionFilePath = path.join(outputDir, "version.json");
-
     fs.writeFileSync(
       versionFilePath,
-      JSON.stringify({ version: Date.now() }, null, 2),
+      JSON.stringify(
+        { version: Date.now(), forceUpdate: !!forceUpdate },
+        null,
+        2
+      ),
       "utf-8"
     );
 
+    if (forceUpdate) api.logger.info("✅ 版本强制刷新");
+    api.logger.info(`✅ Worker 文件已生成: ${workerFilePath}`);
     api.logger.info(`✅ 版本文件已生成: ${versionFilePath}`);
   });
 }

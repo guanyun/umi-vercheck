@@ -5,5 +5,6 @@ export interface VersionCheckProps {
 }
 export interface VersionInfo {
     version: number;
+    forceUpdate: boolean;
 }
 export declare const VersionCheck: React.FC<VersionCheckProps>;
