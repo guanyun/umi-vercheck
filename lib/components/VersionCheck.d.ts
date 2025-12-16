@@ -4,7 +4,7 @@ export interface VersionCheckProps {
     children?: React.ReactNode;
 }
 export interface VersionInfo {
-    version: number;
+    version: string;
     forceUpdate: boolean;
 }
 export declare const VersionCheck: React.FC<VersionCheckProps>;

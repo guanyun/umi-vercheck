@@ -64,7 +64,8 @@ function App() {
 
 ```typescript
 interface VersionInfo {
-  version: number; // 版本号（时间戳）
+  version: string;
+  forceUpdate: boolean;
 }
 ```
 

@@ -6,7 +6,7 @@ export interface VersionCheckProps {
 }
 
 export interface VersionInfo {
-  version: number;
+  version: string;
   forceUpdate: boolean;
 }
 
