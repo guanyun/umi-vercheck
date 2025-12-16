@@ -35,7 +35,7 @@ import { VersionCheck } from "umi-vercheck";
 import { message, Modal } from "antd";
 
 function App() {
-  const handleUpdate = (versionInfo: { version: number }) => {
+  const handleUpdate = (versionInfo: { version: string }) => {
     Modal.confirm({
       title: "检测到新版本",
       content: "应用已更新，是否刷新页面？",
