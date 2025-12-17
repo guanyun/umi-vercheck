@@ -1,6 +1,6 @@
 {
   "name": "umi-vercheck",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "UmiJS 版本检查插件 - 检测应用更新并提示用户刷新",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
