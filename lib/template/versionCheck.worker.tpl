@@ -44,11 +44,6 @@
         new: newVersion,
       });
 
-      if (timer) {
-        clearInterval(timer);
-        timer = null;
-      }
-
       self.postMessage({ type: 'update', payload: newVersionInfo });
     }
   }
