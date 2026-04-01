@@ -10,6 +10,8 @@ export default function (api: IApi) {
         return joi.object({
           enabled: joi.boolean().default(true),
           checkInterval: joi.number().default(60000),
+          /** 构建产物版本号；不传则使用构建时的 Date.now() */
+          version: joi.alternatives().try(joi.string(), joi.number()),
         });
       },
     },
@@ -22,6 +24,11 @@ export default function (api: IApi) {
     const outputDir = api.paths.absOutputPath;
     const checkInterval = config.checkInterval || 60000;
     const { "force-update": forceUpdate = false } = api.args || {};
+
+    const version =
+      config.version !== undefined && config.version !== ""
+        ? String(config.version)
+        : String(Date.now());
 
     const templatePath = path.join(
       __dirname,
@@ -47,11 +54,7 @@ export default function (api: IApi) {
     const versionFilePath = path.join(outputDir, "version.json");
     fs.writeFileSync(
       versionFilePath,
-      JSON.stringify(
-        { version: Date.now(), forceUpdate: !!forceUpdate },
-        null,
-        2
-      ),
+      JSON.stringify({ version, forceUpdate: !!forceUpdate }, null, 2),
       "utf-8"
     );
 
